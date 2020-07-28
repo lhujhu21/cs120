@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+// This file finds palindromes
 char* reverse(char* s){
   //add code here
   char new[strlen(s)];
