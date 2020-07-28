@@ -1,0 +1,15 @@
+CC=cc
+CFLAGS=-I.
+DEPS = 
+OBJ = std.o
+
+%.o: %.c $(DEPS)
+	   $(CC) -c -o $@ $< $(CFLAGS) 
+
+std: $(OBJ)
+	   $(CC) -o $@ $^ $(CFLAGS) -lm
+.PHONY: clean
+
+clean:
+	rm -f $(OBJ)
+
