@@ -1,0 +1,15 @@
+CC=cc
+CFLAGS=-I.
+DEPS = foo.h bar.h
+OBJ = lecture7.o foo.o bar.o
+
+%.o: %.c $(DEPS)
+	   $(CC) -c -o $@ $< $(CFLAGS)
+
+lecture7: $(OBJ)
+	   $(CC) -o $@ $^ $(CFLAGS)
+.PHONY: clean
+
+clean:
+	rm -f $(OBJ)
+
