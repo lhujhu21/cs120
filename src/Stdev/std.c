@@ -24,9 +24,19 @@ double std(double*x, int len) {
   return sqrt(sum/(len - 1));
 }
 
-int main() {
-  double x[] = {12,34,56,78,90};
-  printf("mean of array: %f\n", mean(x, 5));
-  printf("standard deviation of array: %f\n", std(x, 5));
+int main(int argc, const char* argv[]) {
+  double values[argc];
+
+  if (argc <= 1) {
+    printf("usage: %s {list of numbers}\n", argv[0]);
+    return 1;
+  }
+  
+  for(int i = 1; i < argc; i++) {
+    values[i - 1] = atof(argv[i]);
+  }
+  
+  printf("mean of array: %f\n", mean(values, argc - 1));
+  printf("standard deviation of array: %f\n", std(values, argc - 1));
   return(0);
 }
